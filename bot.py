@@ -98,7 +98,7 @@ async def on_message(message):
 				if '.mp4' in m or '.webm' in m:
 					await download_discord_video(message, m)
 
-	else if 'tiktok.com' in message.content:
+	elif 'tiktok.com' in message.content:
 		#checking if there's other text besides tiktok
 		if len(message.content.split(' ')) > 1:
 			#m for section that might contain the link, should've named it better
