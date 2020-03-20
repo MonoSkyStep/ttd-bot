@@ -76,11 +76,11 @@ async def download_discord_video(msg, link):
 	try:
 			#tried to use file itself but it gave issues, saving and sending the file just works
 		await msg.channel.send(file=discord.File(name, name))
-		except Exception as err:
-			print('lol couldn\'t send: ' + str(err))
-			msg.channel.send('files to big probably')
-		#>delet this
-		os.remove(name)
+	except Exception as err:
+		print('lol couldn\'t send: ' + str(err))
+		msg.channel.send('files to big probably')
+	#>delet this
+	os.remove(name)
 
 
 @client.event
