@@ -91,13 +91,6 @@ async def on_message(message):
 	if message.content.startswith('$hello'):
 		await message.channel.send('Hello!')
 
-	if 'cdn.discordapp.com' in message.content:
-		if '.mp4' in message.content or '.webm' in message.content:
-			
-			for m in message.content.split(' '):
-				if '.mp4' in m or '.webm' in m:
-					await download_discord_video(message, m)
-
 	elif 'tiktok.com' in message.content:
 		#checking if there's other text besides tiktok
 		if len(message.content.split(' ')) > 1:
