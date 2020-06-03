@@ -38,10 +38,7 @@ async def download_video(msg, link = None):
 		#the video from the source video tag
 		file_link = vid[0]['src']
 
-	else:
-		await message.channel.send('shit\'s not working my guy')
 
-		
 		file = requests.get(file_link, allow_redirects=True)
 		
 		print('file is: ', type(file))
@@ -57,7 +54,11 @@ async def download_video(msg, link = None):
 			msg.channel.send()
 		#>delet this
 		os.remove(name)
+	
 	else:
+		await message.channel.send('shit\'s not working my guy')
+
+
 		print('issues finding a video: ' + link)
 
 #the jemu clause
