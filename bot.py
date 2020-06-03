@@ -28,15 +28,18 @@ async def download_video(msg, link = None):
 	#parsed data thats searchable
 	data = BeautifulSoup(r.text, 'html.parser')
 
-	#tiktok only has one video tag on the page on the web version when going to the link of a video
-	##used findAll to check if there is more so signify it's some different page or the front page which has none
-	vid = data.findAll('video')
+	#tiktok changed so that there's multiple videos now, but playsinline is on the big video so check for that i guess
+	#website may also be javascript only now
+	vid = data.findAll('video', {'playsinline': True})
 	#basically just making sure it's not on a non-video page
 	if len(vid) == 1:
 		#a random name for the file
 		name = str(random.random()*20000) + '.mp4'
 		#the video from the source video tag
 		file_link = vid[0]['src']
+
+	else:
+		await message.channel.send('shit\'s not working my guy')
 
 		
 		file = requests.get(file_link, allow_redirects=True)
