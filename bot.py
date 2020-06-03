@@ -56,7 +56,7 @@ async def download_video(msg, link = None):
 		os.remove(name)
 	
 	else:
-		await message.channel.send('shit\'s not working my guy')
+		await msg.channel.send('shit\'s not working my guy')
 
 
 		print('issues finding a video: ' + link)
